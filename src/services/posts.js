@@ -30,35 +30,20 @@ const createPostObject = data => {
 
 export const getAll = async () => {
     const posts = await db('posts')
-    const postsPromises = posts.map(async post => {
-        const author = await db('users')
-            .where({ id: post.author })
-            .first()
-        post.author = author
-        return post
-    })
-
-    return await Promise.all(postsPromises)
+    return posts
 }
 
 export const getById = async id => {
     const post = await db('posts')
         .where({ id })
         .first()
-    if (post) {
-        const author = await db('users')
-            .where({ id: post.author })
-            .first()
-        return { ...post, author }
-    } else {
-        return null
-    }
+    return post
 }
 
 export const add = async post => {
     const postObject = createNewPostObject(post)
     if (!postObject.error) {
-        const id = await db('posts').insert(post)
+        const id = await db('posts').insert(postObject)
         return await getById(id[0])
     } else {
         return postObject
