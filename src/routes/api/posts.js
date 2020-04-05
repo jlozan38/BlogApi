@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import * as postServices from '../../services/posts'
-//import auth from '../../helpers/auth'
+
 
 const router = Router()
 
