@@ -41,7 +41,6 @@ export const getAll = async () => {
     return await Promise.all(postsPromises)
 }
 
-
 export const getById = async id => {
     const post = await db('posts')
         .where({ id })
@@ -87,4 +86,4 @@ export const remove = async id => {
         .where({ id })
         .del()
     return { msg: 'Ok' }
-}     
+}

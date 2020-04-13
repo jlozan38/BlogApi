@@ -1,9 +1,9 @@
-import {Router} from 'express'
+import { Router } from 'express'
 import auth from '../helpers/auth'
 
 const router = Router()
 
-router.get('/', (req,res) => {
+router.get('/', (req, res) => {
     res.json({ msg: process.env.APP_NAME || 'Hello There' })
 })
 

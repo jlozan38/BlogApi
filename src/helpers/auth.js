@@ -4,7 +4,7 @@ const serviceAccount = require('../../firebaseServiceAccount.json')
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://blog-95c8c.firebaseio.com",
+    databaseURL: 'https://blog-95c8c.firebaseio.com',
 })
 
 const auth = async (req, res, next) => {
