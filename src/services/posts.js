@@ -86,4 +86,4 @@ export const remove = async id => {
         .where({ id })
         .del()
     return { msg: 'Ok' }
-}
+}     

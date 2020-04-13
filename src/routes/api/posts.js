@@ -11,9 +11,9 @@ router.get('/posts/:id', async (req, res) => {
     post ? res.send(post) : res.status(404).end()
 })
 
-router.post('/posts', auth, async (req, res) => {
+router.post('/posts', auth, async (req, res) =>
     req.body.post ? res.send(await postServices.add(req.body.post)) : res.status(400).send({ msg: '💩 Bad Request' })
-})
+)
 
 router.put('/posts/:id', auth, async (req, res) => {
     const post = await postServices.getById(req.params.id)
